@@ -8,3 +8,11 @@ C:\DAL.SDK\DAL.SDK\bin\Debug\EntityFramework.SqlServer.xml
 C:\DAL.SDK\DAL.SDK\obj\Debug\DAL.SDK.dll
 C:\DAL.SDK\DAL.SDK\obj\Debug\DAL.SDK.pdb
 C:\DAL.SDK\DAL.SDK\obj\Debug\DAL.SDK.csprojResolveAssemblyReference.cache
+D:\Mine\bin\Debug\DAL.SDK.dll.config
+D:\Mine\bin\Debug\DAL.SDK.dll
+D:\Mine\bin\Debug\DAL.SDK.pdb
+D:\Mine\bin\Debug\EntityFramework.xml
+D:\Mine\bin\Debug\EntityFramework.SqlServer.xml
+D:\Mine\obj\Debug\DAL.SDK.csprojResolveAssemblyReference.cache
+D:\Mine\obj\Debug\DAL.SDK.dll
+D:\Mine\obj\Debug\DAL.SDK.pdb
