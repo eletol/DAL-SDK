@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using EmpPayroll.Services.Domain.Models;
 
 namespace EmpPayroll.Services.Domain.Interfaces
 {
     public interface IUserRepository
     {
         IEnumerable<Models.ApplicationUser> GetAll();
-        IEnumerable<Models.ApplicationUser> GetById(string id);
+        ApplicationUser GetById(string id);
 
         //Models.ApplicationUser Save(Models.ApplicationUser user);
 

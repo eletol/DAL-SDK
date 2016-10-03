@@ -15,9 +15,9 @@ namespace EmpPayroll.Services.Domain.Repos
 
         }
 
-        public new IEnumerable<Models.ApplicationUser> GetById(string id)
+        public new Models.ApplicationUser GetById(string id)
         {
-           return base.GetById(id,"Id");
+           return base.GetById(id);
         }
 
         //public Models.ApplicationUser Save(Models.ApplicationUser users)

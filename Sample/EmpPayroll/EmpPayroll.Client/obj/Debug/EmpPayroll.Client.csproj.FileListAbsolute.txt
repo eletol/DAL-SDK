@@ -16,3 +16,9 @@ F:\EmpPayroll\EmpPayroll.Client\bin\EmpPayroll.Client.pdb
 F:\EmpPayroll\EmpPayroll.Client\obj\Debug\EmpPayroll.Client.csprojResolveAssemblyReference.cache
 F:\EmpPayroll\EmpPayroll.Client\obj\Debug\EmpPayroll.Client.dll
 F:\EmpPayroll\EmpPayroll.Client\obj\Debug\EmpPayroll.Client.pdb
+D:\Mine\Sample\EmpPayroll\EmpPayroll.Client\bin\EmpPayroll.Client.dll.config
+D:\Mine\Sample\EmpPayroll\EmpPayroll.Client\bin\EmpPayroll.Client.dll
+D:\Mine\Sample\EmpPayroll\EmpPayroll.Client\bin\EmpPayroll.Client.pdb
+D:\Mine\Sample\EmpPayroll\EmpPayroll.Client\obj\Debug\EmpPayroll.Client.csprojResolveAssemblyReference.cache
+D:\Mine\Sample\EmpPayroll\EmpPayroll.Client\obj\Debug\EmpPayroll.Client.dll
+D:\Mine\Sample\EmpPayroll\EmpPayroll.Client\obj\Debug\EmpPayroll.Client.pdb

@@ -1,102 +1,90 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DAL.SDK.common
 {
     public class BusinessCollection<TModel, TContext>
-        where TModel : class,new()
-        where TContext : DbContext,new()
+        where TModel : class, new()
+        where TContext : DbContext, new()
 
     {
-        private IObjectSet<TModel> _objectSet = null;
         private TContext _contx = null;
+        DbSet<TModel> dbSet;
 
         public TContext ContextObject
         {
             get { return _contx ?? (_contx = new TContext()); }
         }
-        internal virtual IQueryable<TModel> Scope(IQueryable<TModel> p_toScope)
+
+        public BusinessCollection()
         {
-            return p_toScope;
+            this.dbSet = ContextObject.Set<TModel>();
+
         }
-        private IObjectSet<TModel> EntitySet
+
+        public virtual IEnumerable<TModel> Get(
+           Expression<Func<TModel, bool>> filter = null,
+           Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null,
+           string includeProperties = "")
         {
-            get
+            IQueryable<TModel> query = dbSet;
+
+            if (filter != null)
             {
-                if (_objectSet == null)
-                {
-                    _objectSet = (ContextObject as IObjectContextAdapter).ObjectContext.CreateObjectSet<TModel>();
-                }
-                return _objectSet;
+                query = query.Where(filter);
             }
-        }
-        public virtual IQueryable<TModel> QueryBuilder
-        {
-            get
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                return Scope(EntitySet);
+                query = query.Include(includeProperty);
             }
-        }
 
-        public virtual IQueryable<TModel> QueryByAll()
-        {
-            return (from item in QueryBuilder select item);
-        }
-
-
-        public virtual TModel Save(TModel p_toSave)
-        {
-            EntitySet.AddObject(p_toSave);
-            Save(true);
-            return p_toSave;
-            
-        }
-        public virtual bool Update()
-        {
-           
-            Save(true);
-            return  true;
-
-        }
-        public virtual bool Delete(TModel p_toDelete)
-        {
-            EntitySet.DeleteObject(p_toDelete);
-            Save(true);
-            return true;
-
-        }
-
-        public virtual IQueryable<TModel> QueryByUniqueId<T>(T id,string idProp)
-        {
-            string s;
-            if (id is string)
+            if (orderBy != null)
             {
-
-                s = string.Format(idProp+"=\"{0}\"", id);
- 
+                return orderBy(query).ToList();
             }
             else
             {
-                 s = string.Format(idProp+"={0}", id);
-
+                return query.ToList();
             }
-
-            var o = from item in QueryBuilder.Where(s).Cast<TModel>() select item;
-            return o;     
-
-
         }
-        public void Save(bool p)
+
+        public virtual TModel GetByID(object id)
         {
-            if (p)
-            {
-                ContextObject.SaveChanges();
-            }
+            return dbSet.Find(id);
         }
-    
 
+        public TModel Insert(TModel entity)
+        {
+            return dbSet.Add(entity);
+        }
+
+        public virtual void Delete(object id)
+        {
+            TModel entityToDelete = dbSet.Find(id);
+            Delete(entityToDelete);
+        }
+
+        public virtual void Delete(TModel entityToDelete)
+        {
+            if (ContextObject.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                dbSet.Attach(entityToDelete);
+            }
+            dbSet.Remove(entityToDelete);
+        }
+
+        public virtual void Update(TModel entityToUpdate)
+        {
+            dbSet.Attach(entityToUpdate);
+            ContextObject.Entry(entityToUpdate).State = EntityState.Modified;
+        }
 
 
     }

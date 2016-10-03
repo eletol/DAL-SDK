@@ -13,18 +13,18 @@ namespace EmpPayroll.Services.Domain.Repos
         public IEnumerable<TItem> QueryByAll()
         {
             var c = new TCollection();
-            return c.QueryByAll().ToList();
+            return c.Get().ToList();
         }
-        public IEnumerable<TItem> GetById(string id,string idProp)
+        public TItem GetById(string id)
         {
             var c = new TCollection();
 
-            return c.QueryByUniqueId(id, idProp);
+            return c.GetByID(id);
         }
         public TItem Save(TItem item)
         {
             var c = new TCollection();
-            return c.Save(item);
+            return c.Insert(item);
         }
 
         public TCollection GetCollection()

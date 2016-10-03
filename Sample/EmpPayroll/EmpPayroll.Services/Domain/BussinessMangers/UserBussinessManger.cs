@@ -26,7 +26,7 @@ namespace EmpPayroll.Services.Domain.BussinessMangers
         public Models.ApplicationUser GetById(string id)
         {
 
-            return _repository.GetById(id).First();
+            return _repository.GetById(id);
         }
         //public Models.GlossaryItem Save(Models.GlossaryItem item)
         //{
