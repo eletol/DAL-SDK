@@ -1,6 +1,6 @@
 # DAL-SDK
 Data access layer using generic common methods .
-Tke alook to the samble .
+Take alook to the sample .
 
 After adding the DAL.SDK to your projcet :
 
