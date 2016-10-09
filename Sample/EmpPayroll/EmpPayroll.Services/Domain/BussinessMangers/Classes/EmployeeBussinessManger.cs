@@ -1,21 +1,19 @@
 ﻿using System;
 using App.Services.Domain.Models;
 using App.Services.Domain.Repository.Interfaces;
+using App.Services.Domain.UnitOfWork;
 
 
 namespace App.Services.Domain.BussinessMangers.Classes
 {
-    public class EmployeeBussinessManger : BaseBussinessManger<Employee>
+    public class EmployeeBussinessManger<TRepository> : BaseBussinessManger<Employee, TRepository>
+        where TRepository : IEmployeeRepository
     {
         private readonly IEmployeeRepository _repository;
-
-        public EmployeeBussinessManger(IEmployeeRepository repo) : base(repo)
+        private readonly IUnitOfWork _unitOfWork;
+        public EmployeeBussinessManger(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            if (repo == null)
-            {
-                throw new ArgumentNullException("no repository provided");
-            }
-            this._repository = repo;
+           
         }
       
      

@@ -5,46 +5,56 @@ using System.Linq.Expressions;
 using System.Web.DynamicData;
 using App.Services.Domain.BussinessMangers.Interfaces;
 using App.Services.Domain.Repository;
+using App.Services.Domain.UnitOfWork;
 
 namespace App.Services.Domain.BussinessMangers.Classes
 {
-    public class BaseBussinessManger<TEntity> : IBaseBussinessManger<TEntity> where TEntity : class
+    public class BaseBussinessManger<TEntity, TRepository> : IBaseBussinessManger<TEntity> where TEntity : class
+        where TRepository : IBaseRepository<TEntity>
     {
-        private  IBaseRepository<TEntity> _repository;
-        public BaseBussinessManger(IBaseRepository<TEntity> repo)
+        protected IBaseRepository<TEntity> Repository { get; set; }
+        protected IUnitOfWork UnitOfWork { get; set; }
+        public BaseBussinessManger(IUnitOfWork _uow)
         {
-            if (repo == null)
+            if (_uow == null)
             {
                 throw new ArgumentNullException("no repository provided");
             }
-            this._repository = repo;
+            UnitOfWork = _uow;
+            Repository = UnitOfWork.Repository<TEntity, TRepository>();
         }
 
       
 
         public virtual TEntity GetById(object id)
         {
-            return _repository.GetById(id);
+            return Repository.GetById(id);
         }
 
         public virtual TEntity Save(TEntity item)
         {
-            return _repository.Save(item);
+           var addedItem= Repository.Save(item);
+            UnitOfWork.Save();
+            return addedItem;
         }
 
         public virtual TEntity Update(TEntity entityToUpdate)
         {
-            return _repository.Update(entityToUpdate);
+            var editedItem = Repository.Update(entityToUpdate);
+            UnitOfWork.Save();
+            return editedItem;
         }
 
         public virtual TEntity Delete(object id)
         {
-            return _repository.Delete(id);
+            var deletedItem= Repository.Delete(id);
+            UnitOfWork.Save();
+            return deletedItem;
         }
 
         public virtual IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
         {
-            return _repository.Get(filter, orderBy, includeProperties);
+            return Repository.Get(filter, orderBy, includeProperties);
         }
     }
 

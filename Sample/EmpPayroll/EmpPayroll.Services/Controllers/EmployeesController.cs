@@ -3,6 +3,7 @@ using System.Web.Http;
 using App.Services.Domain.BussinessMangers.Classes;
 using App.Services.Domain.DBContext;
 using App.Services.Domain.Models;
+using App.Services.Domain.Repository;
 using App.Services.Domain.Repository.Interfaces;
 using App.Services.Domain.UnitOfWork;
 
@@ -12,13 +13,13 @@ namespace App.Services.Controllers
     
     public class EmployeesController : ApiController
     {
-        private readonly EmployeeBussinessManger _employeeBussinessManger;
+        private readonly EmployeeBussinessManger<EmployeeRepository> _employeeBussinessManger;
         private UnitOfWork<ApplicationDbContext> _uow;
         public EmployeesController()
         {
             _uow = new UnitOfWork<ApplicationDbContext>();
             _employeeBussinessManger = new
-                EmployeeBussinessManger(_uow.Repository<Employee, IEmployeeRepository>());
+                EmployeeBussinessManger<EmployeeRepository>(_uow);
         }
         // GET: api/Departments
         public IEnumerable<Employee> Get()
