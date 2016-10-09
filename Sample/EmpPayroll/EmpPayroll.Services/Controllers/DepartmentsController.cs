@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.OData;
 using App.Services.Domain.BussinessMangers.Classes;
 using App.Services.Domain.DBContext;
 using App.Services.Domain.Models;
@@ -24,7 +25,7 @@ namespace EmpPayroll.Services.Controllers
                 DepartmentBussinessManger<DepartmentRepository>(_uow);
         }
         // GET: api/Departments
-         [Queryable]
+         [EnableQuery]
         public IQueryable<Department> Get()
         {
             return _departmentBussinessManger.Get();
