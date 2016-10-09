@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace EmpPayroll.Services
+namespace App.Services
 {
     public class BundleConfig
     {

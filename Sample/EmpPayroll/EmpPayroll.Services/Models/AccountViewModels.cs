@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EmpPayroll.Services.Models
+namespace App.Services.Models
 {
     // Models returned by AccountController actions.
 

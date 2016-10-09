@@ -27,7 +27,7 @@ namespace DAL.SDK.common
 
         }
 
-        public virtual IEnumerable<TModel> Get(
+        public virtual IQueryable<TModel> Get(
            Expression<Func<TModel, bool>> filter = null,
            Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null,
            string includeProperties = "")
@@ -47,11 +47,11 @@ namespace DAL.SDK.common
 
             if (orderBy != null)
             {
-                return orderBy(query).ToList();
+                return orderBy(query);
             }
             else
             {
-                return query.ToList();
+                return query;
             }
         }
 
@@ -65,25 +65,26 @@ namespace DAL.SDK.common
             return dbSet.Add(entity);
         }
 
-        public virtual void Delete(object id)
+        public virtual TModel Delete(object id)
         {
             TModel entityToDelete = dbSet.Find(id);
-            Delete(entityToDelete);
+            return Delete(entityToDelete);
         }
 
-        public virtual void Delete(TModel entityToDelete)
+        public virtual TModel Delete(TModel entityToDelete)
         {
             if (ContextObject.Entry(entityToDelete).State == EntityState.Detached)
             {
                 dbSet.Attach(entityToDelete);
             }
-            dbSet.Remove(entityToDelete);
+           return dbSet.Remove(entityToDelete);
         }
 
-        public virtual void Update(TModel entityToUpdate)
+        public virtual TModel Update(TModel entityToUpdate)
         {
-            dbSet.Attach(entityToUpdate);
+            var entity=dbSet.Attach(entityToUpdate);
             ContextObject.Entry(entityToUpdate).State = EntityState.Modified;
+            return entity;
         }
 
 

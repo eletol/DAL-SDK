@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EmpPayroll.Services.Controllers
+namespace App.Services.Controllers
 {
     public class HomeController : Controller
     {

@@ -3,8 +3,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using EmpPayroll.Services.Areas.HelpPage.ModelDescriptions;
 using EmpPayroll.Services.Areas.HelpPage.Models;
-using EmpPayroll.Services.Areas.HelpPage.ModelDescriptions;
-using EmpPayroll.Services.Areas.HelpPage.Models;
 
 namespace EmpPayroll.Services.Areas.HelpPage.Controllers
 {

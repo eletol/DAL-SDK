@@ -6,8 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Newtonsoft.Json;
 
-namespace EmpPayroll.Services
+namespace App.Services
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
@@ -18,6 +19,7 @@ namespace EmpPayroll.Services
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.S‌​erializerSettings.Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

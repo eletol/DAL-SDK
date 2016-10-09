@@ -1,53 +1,55 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using EmpPayroll.Services.Domain.BussinessMangers;
-using EmpPayroll.Services.Domain.Repos;
-using EmpPayroll.Services.Domain.ViewModels;
-using Microsoft.AspNet.Identity;
+using App.Services.Domain.BussinessMangers.Classes;
+using App.Services.Domain.DBContext;
+using App.Services.Domain.Models;
+using App.Services.Domain.Repository.Interfaces;
+using App.Services.Domain.UnitOfWork;
 
-namespace EmpPayroll.Services.Controllers
+namespace App.Services.Controllers
 {
      [RoutePrefix("api/Employees")]
     
     public class EmployeesController : ApiController
     {
-        private readonly MangerBussinessManger _mangerBussinessManger;
-        private readonly UserBussinessManger _userBussinessManger;
-        private string _userId;
-
+        private readonly EmployeeBussinessManger _employeeBussinessManger;
+        private UnitOfWork<ApplicationDbContext> _uow;
         public EmployeesController()
         {
-            _userBussinessManger = new UserBussinessManger(new UserRepository());
-            _mangerBussinessManger = new MangerBussinessManger(new MangerReposiory());
+            _uow = new UnitOfWork<ApplicationDbContext>();
+            _employeeBussinessManger = new
+                EmployeeBussinessManger(_uow.Repository<Employee, IEmployeeRepository>());
         }
-
-        [HttpGet]
-        [Route("GetPayroll")]
-        [Authorize]
-        // GET: api/Employees/5
-        public ApplicationUserViewModel GetPayroll()
+        // GET: api/Departments
+        public IEnumerable<Employee> Get()
         {
-            _userId = User.Identity.GetUserId();
-
-            var emp = _userBussinessManger.GetById(_userId);
-            return new ApplicationUserViewModel
-            {
-                DId = emp.DId,
-                Salary = emp.Salary,
-                UserName = emp.UserName
-            };
+            return _employeeBussinessManger.Get();
         }
 
-        [HttpGet]
-        [Route("GetEmployeesPayroll")]
-        [Authorize]
-
-        public IEnumerable<ApplicationUserViewModel> GetEmployeesPayroll()
+        // GET: api/Departments/5
+        public Employee Get(int id)
         {
-            _userId = User.Identity.GetUserId();
-
-            var empList = _mangerBussinessManger.GetEmployeesPayroll(_userId);
-            return empList;
+            return _employeeBussinessManger.GetById(id);
         }
+
+        // POST: api/Departments
+        public Employee Post([FromBody]Employee employee)
+        {
+            return _employeeBussinessManger.Save(employee);
+
+        }
+
+        // PUT: api/Departments/5
+        public Employee Put([FromBody] Employee employee)
+        {
+            return _employeeBussinessManger.Update(employee);
+        }
+
+        // DELETE: api/Departments/5
+        public Employee Delete(int id)
+        {
+            return _employeeBussinessManger.Delete(id);
+        }
+
     }
 }

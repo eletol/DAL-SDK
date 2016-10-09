@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EmpPayroll.Services.Domain.Models
+namespace App.Services.Domain.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public virtual Department Department { get; set; }
-        public string DId { get; set; }
-
-         [Required]
-        public double Salary { get; set; }
+     
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager,
             string authenticationType)

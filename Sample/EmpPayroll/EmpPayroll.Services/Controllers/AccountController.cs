@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
-using EmpPayroll.Services.Domain.Models;
+using App.Services.Domain.Models;
+using App.Services.Models;
+using App.Services.Providers;
+using App.Services.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using EmpPayroll.Services.Models;
-using EmpPayroll.Services.Providers;
-using EmpPayroll.Services.Results;
 
-namespace EmpPayroll.Services.Controllers
+namespace App.Services.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

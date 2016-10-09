@@ -6,7 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
-namespace EmpPayroll.Services
+namespace App.Services
 {
     public static class WebApiConfig
     {

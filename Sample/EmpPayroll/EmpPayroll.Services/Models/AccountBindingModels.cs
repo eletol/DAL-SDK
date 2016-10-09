@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace EmpPayroll.Services.Models
+namespace App.Services.Models
 {
     // Models used as parameters to AccountController actions.
 
