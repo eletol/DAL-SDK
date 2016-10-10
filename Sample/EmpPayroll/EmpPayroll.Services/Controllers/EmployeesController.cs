@@ -14,10 +14,10 @@ namespace App.Services.Controllers
     public class EmployeesController : ApiController
     {
         private readonly EmployeeBussinessManger<EmployeeRepository> _employeeBussinessManger;
-        private UnitOfWork<ApplicationDbContext> _uow;
+        private UnitOfWork<DbContext> _uow;
         public EmployeesController()
         {
-            _uow = new UnitOfWork<ApplicationDbContext>();
+            _uow = new UnitOfWork<DbContext>();
             _employeeBussinessManger = new
                 EmployeeBussinessManger<EmployeeRepository>(_uow);
         }

@@ -8,7 +8,7 @@ using DAL.SDK.common;
 namespace App.Services.Domain.Repository
 {
     public class BaseRepository<TCollection, TItem> :IBaseRepository<TItem>
-        where TCollection : BusinessCollection<TItem, ApplicationDbContext>, new()
+        where TCollection : BusinessCollection<TItem, DbContext>, new()
         where TItem : class,new()
 
     {

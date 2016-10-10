@@ -17,13 +17,14 @@ namespace EmpPayroll.Services.Controllers
     public class DepartmentsController : ApiController
     {
         private readonly DepartmentBussinessManger<DepartmentRepository> _departmentBussinessManger;
-        private UnitOfWork<ApplicationDbContext> _uow;
+
         public DepartmentsController()
         {
-            _uow=new UnitOfWork<ApplicationDbContext>();
+            var uow = new UnitOfWork<DbContext>();
             _departmentBussinessManger= new
-                DepartmentBussinessManger<DepartmentRepository>(_uow);
+                DepartmentBussinessManger<DepartmentRepository>(uow);
         }
+
         // GET: api/Departments
          [EnableQuery]
         public IQueryable<Department> Get()

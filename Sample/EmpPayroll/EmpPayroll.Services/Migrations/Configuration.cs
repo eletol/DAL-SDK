@@ -6,14 +6,14 @@ using Microsoft.AspNet.Identity;
 
 namespace App.Services.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(DbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

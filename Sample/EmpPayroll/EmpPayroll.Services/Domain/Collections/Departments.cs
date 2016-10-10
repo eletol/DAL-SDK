@@ -4,7 +4,7 @@ using DAL.SDK.common;
 
 namespace EmpPayroll.Services.Domain.Collections
 {
-    public class Departments: BusinessCollection<Department, ApplicationDbContext>
+    public class Departments: BusinessCollection<Department, DbContext>
     {
     }
 }

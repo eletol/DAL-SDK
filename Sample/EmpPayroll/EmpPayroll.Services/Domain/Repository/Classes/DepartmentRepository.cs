@@ -7,9 +7,5 @@ namespace EmpPayroll.Services.Domain.Repository.Classes
 {
     public class DepartmentRepository:BaseRepository<Departments,Department>,IDepartmentRepository
     {
-        public DepartmentRepository()
-        {
-            
-        }
     }
 }

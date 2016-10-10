@@ -6,9 +6,5 @@ namespace App.Services.Domain.Repository
 {
     public class EmployeeRepository :BaseRepository<Employees,Employee>,IEmployeeRepository
     {
-        public EmployeeRepository()
-        {
-            
-        }
     }
 }

@@ -19,7 +19,7 @@ namespace App.Services.Domain.UnitOfWork
             _context = new TContext();
         }
 
-             public void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

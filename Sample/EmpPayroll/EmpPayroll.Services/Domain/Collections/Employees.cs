@@ -4,7 +4,7 @@ using DAL.SDK.common;
 
 namespace App.Services.Domain.Collections
 {
-    public class Employees: BusinessCollection<Employee, ApplicationDbContext>
+    public class Employees: BusinessCollection<Employee, DbContext>
     {
 
     }

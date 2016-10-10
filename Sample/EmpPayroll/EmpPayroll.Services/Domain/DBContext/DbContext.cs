@@ -5,9 +5,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace App.Services.Domain.DBContext
 {
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
+    public class DbContext : IdentityDbContext<ApplicationUser>, IDbContext
     {
-        public ApplicationDbContext()
+        public DbContext()
             : base("DefaultConnection", false)
         {
         }
@@ -16,14 +16,11 @@ namespace App.Services.Domain.DBContext
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
 
-        public static ApplicationDbContext Create()
+        public static DbContext Create()
         {
-            return new ApplicationDbContext();
+            return new DbContext();
         }
 
-        public new IDbSet<T> Set<T>() where T : class
-        {
-            return base.Set<T>();
-        }
+      
     }
 }
