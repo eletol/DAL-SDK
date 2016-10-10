@@ -167,3 +167,10 @@ D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\ko\System.Spatial.reso
 D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\ru\System.Spatial.resources.dll
 D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\zh-Hans\System.Spatial.resources.dll
 D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\zh-Hant\System.Spatial.resources.dll
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\Ninject.dll
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\Ninject.Web.Common.dll
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\Ninject.Web.WebApi.dll
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\WebActivatorEx.dll
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\Ninject.xml
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\Ninject.Web.Common.xml
+D:\Mine\DAL.SDK\Sample\EmpPayroll\EmpPayroll.Services\bin\Ninject.Web.WebApi.xml

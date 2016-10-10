@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace App.Services.Domain.BussinessMangers.Interfaces
 {
-    interface IBaseBussinessManger<TEntity> where TEntity : class
+    public interface IBaseBussinessManger<TEntity> where TEntity : class
     {
         TEntity GetById(object id);
         TEntity Save(TEntity item);

@@ -6,27 +6,30 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.OData;
 using App.Services.Domain.BussinessMangers.Classes;
+using App.Services.Domain.BussinessMangers.Interfaces;
 using App.Services.Domain.DBContext;
 using App.Services.Domain.Models;
 using App.Services.Domain.Repository.Interfaces;
 using App.Services.Domain.UnitOfWork;
 using EmpPayroll.Services.Domain.Repository.Classes;
+using Ninject;
 
 namespace EmpPayroll.Services.Controllers
 {
     public class DepartmentsController : ApiController
     {
-        private readonly DepartmentBussinessManger<DepartmentRepository> _departmentBussinessManger;
-
+        private readonly IDepartmentBussinessManger _departmentBussinessManger;
+        [Inject]
+        public DepartmentsController(IUnitOfWork uow,IDepartmentBussinessManger departmentBussinessManger)
+        {
+            _departmentBussinessManger = departmentBussinessManger;
+        }
         public DepartmentsController()
         {
-            var uow = new UnitOfWork<DbContext>();
-            _departmentBussinessManger= new
-                DepartmentBussinessManger<DepartmentRepository>(uow);
+       
         }
-
         // GET: api/Departments
-         [EnableQuery]
+        [EnableQuery]
         public IQueryable<Department> Get()
         {
             return _departmentBussinessManger.Get();
