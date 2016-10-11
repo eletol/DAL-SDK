@@ -1,26 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using System.Web.Http.OData;
-using App.Services.Domain.BussinessMangers.Classes;
 using App.Services.Domain.BussinessMangers.Interfaces;
-using App.Services.Domain.DBContext;
 using App.Services.Domain.Models;
-using App.Services.Domain.Repository.Interfaces;
-using App.Services.Domain.UnitOfWork;
-using EmpPayroll.Services.Domain.Repository.Classes;
 using Ninject;
 
-namespace EmpPayroll.Services.Controllers
+namespace App.Services.Controllers
 {
     public class DepartmentsController : ApiController
     {
         private readonly IDepartmentBussinessManger _departmentBussinessManger;
         [Inject]
-        public DepartmentsController(IUnitOfWork uow,IDepartmentBussinessManger departmentBussinessManger)
+        public DepartmentsController(IDepartmentBussinessManger departmentBussinessManger)
         {
             _departmentBussinessManger = departmentBussinessManger;
         }

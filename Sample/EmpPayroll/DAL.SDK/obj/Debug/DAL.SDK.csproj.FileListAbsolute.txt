@@ -21,7 +21,6 @@ D:\Mine\Sample\EmpPayroll\DAL.SDK\bin\Debug\TrackableEntities.EF.6.xml
 D:\Mine\Sample\EmpPayroll\DAL.SDK\obj\Debug\DAL.SDK.dll
 D:\Mine\Sample\EmpPayroll\DAL.SDK\obj\Debug\DAL.SDK.pdb
 D:\Mine\Sample\EmpPayroll\DAL.SDK\obj\Debug\DAL.SDK.csprojResolveAssemblyReference.cache
-D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\EntityFramework.xml
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\DAL.SDK.dll.config
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\DAL.SDK.dll
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\DAL.SDK.pdb
@@ -34,6 +33,7 @@ D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\System.Net.Http.Formatting.d
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\System.Web.Http.dll
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\TrackableEntities.Common.dll
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\TrackableEntities.EF.6.dll
+D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\EntityFramework.xml
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\EntityFramework.SqlServer.xml
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\FluentValidationNA.xml
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\Newtonsoft.Json.xml
@@ -41,5 +41,6 @@ D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\System.Net.Http.Formatting.x
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\System.Web.Http.xml
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\TrackableEntities.Common.xml
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\bin\Debug\TrackableEntities.EF.6.xml
+D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\obj\Debug\DAL.SDK.csprojResolveAssemblyReference.cache
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\obj\Debug\DAL.SDK.dll
 D:\Mine\DAL.SDK\Sample\EmpPayroll\DAL.SDK\obj\Debug\DAL.SDK.pdb

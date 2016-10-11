@@ -1,25 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using App.Services.Domain.BussinessMangers.Classes;
-using App.Services.Domain.DBContext;
+using App.Services.Domain.BussinessMangers.Interfaces;
 using App.Services.Domain.Models;
-using App.Services.Domain.Repository;
-using App.Services.Domain.Repository.Interfaces;
-using App.Services.Domain.UnitOfWork;
+using Ninject;
 
 namespace App.Services.Controllers
 {
-     [RoutePrefix("api/Employees")]
+    
     
     public class EmployeesController : ApiController
     {
-        private readonly EmployeeBussinessManger<EmployeeRepository> _employeeBussinessManger;
-        private UnitOfWork<DbContext> _uow;
+        private readonly IEmployeeBussinessManger _employeeBussinessManger;
+         [Inject]
+        public EmployeesController(IEmployeeBussinessManger employeeBussinessManger)
+        {
+            _employeeBussinessManger= employeeBussinessManger  ;
+        }
         public EmployeesController()
         {
-            _uow = new UnitOfWork<DbContext>();
-            _employeeBussinessManger = new
-                EmployeeBussinessManger<EmployeeRepository>(_uow);
+
         }
         // GET: api/Departments
         public IEnumerable<Employee> Get()

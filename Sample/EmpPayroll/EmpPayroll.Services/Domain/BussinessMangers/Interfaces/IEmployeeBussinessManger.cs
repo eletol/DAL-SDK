@@ -2,7 +2,7 @@
 
 namespace App.Services.Domain.BussinessMangers.Interfaces
 {
-    interface IEmployeeBussinessManger:IBaseBussinessManger<Employee>
+    public interface IEmployeeBussinessManger:IBaseBussinessManger<Employee>
     {
        
     }
